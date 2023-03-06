@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.section {
+    width: 600px;
+    height: 400px;
+    background-color: lightgray;
+    border: 2px solid gray;
+    text-align: center;
+    font-size: 20px;
+}
+button {
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 20px;
+}

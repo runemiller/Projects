@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #stopwatch {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="stopwatch">
+    <p id="time">00:00:00.000</p>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn">Stop</button>
+    <button id="resetBtn">Reset</button>
+</div>
+<script>
+    const stopwatch = document.getElementById("stopwatch");
+    const timeDisplay = document.getElementById("time");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    let interval;
+    let startTime;
+    let elapsedTime = 0;
+
+    function start() {
+        startTime = Date.now();
+        interval = setInterval(() => {
+            let now = Date.now();
+            elapsedTime = now - startTime;
+            let hours = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) /
+                (1000 * 60 * 60));
+            let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) /
+                (1000 * 60));
+            let seconds = Math.floor((elapsedTime % (1000 * 60)) /
+                1000);
+            let milliseconds = elapsedTime % 1000;
+            timeDisplay.innerHTML =
+                (hours < 10 ? "0" + hours : hours) +
+                ":" +
+                (minutes < 10 ? "0" + minutes : minutes) +
+                ":" +
+                (seconds < 10 ? "0" + seconds : seconds) +
+                "." +
+                (milliseconds < 10 ? "00" + milliseconds : milliseconds < 100 ? "0" +
+                    milliseconds : milliseconds);
+        }, 10);
+        startBtn.setAttribute("disabled", "disabled");
+    }
+
+    function stop() {
+        clearInterval(interval);
+        startBtn.removeAttribute("disabled");
+    }
+
+    function reset() {
+        stop();
+        elapsedTime = 0;
+        timeDisplay.innerHTML = "00:00:00.000";
+    }
+
+    startBtn.addEventListener("click", start);
+    stopBtn.addEventListener("click", stop);
+    resetBtn.addEventListener("click", reset);
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .digit {
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: "Arial Black", Arial, sans-serif;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="digit" id="hours1"></div>
+  <div class="digit" id="hours2"></div>
+  <div class="digit">:</div>
+  <div class="digit" id="minutes1"></div>
+  <div class="digit" id="minutes2"></div>
+  <div class="digit">:</div>
+  <div class="digit" id="seconds1"></div>
+  <div class="digit" id="seconds2"></div>
+</div>
+<script>
+  function updateTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const seconds = now.getSeconds().toString().padStart(2, "0");
+    document.getElementById("hours1").innerHTML = hours[0];
+    document.getElementById("hours2").innerHTML = hours[1];
+    document.getElementById("minutes1").innerHTML = minutes[0];
+    document.getElementById("minutes2").innerHTML = minutes[1];
+    document.getElementById("seconds1").innerHTML = seconds[0];
+    document.getElementById("seconds2").innerHTML = seconds[1];
+  }
+  setInterval(updateTime, 1000);
+</script>
+</body>
+</html>

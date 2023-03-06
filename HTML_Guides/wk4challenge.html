@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop 4 Challenge Task</title>
+    <link rel = "stylesheet" type = "text/css" href = "wk4challenge.css">
+    <script src = "wk4challenge.js" type = "text/javascript"></script>
+  </head>
+  <body onload = "showSection(Stopwatch); ALstartClock(Alarm)">
+    <div>
+      <button id="B1">Show Stopwatch</button>
+      <button id="B2">Show Timer</button>
+      <button id="B3">Show Alarm</button>
+    </div>
+    <div class="container">
+      <div id="Stopwatch" class="section">
+        Stopwatch
+        <p id="SWtime">00:00:00.000</p>
+        <button id="SWstartB">Start</button>
+        <button id="SWstopB">Stop</button>
+        <button id="SWresetB">Reset</button>
+      </div>
+      <div id="Timer" class="section">
+        Timer
+        <p id="TMtime">00:00:00</p>
+        <input type="text" id="TMinputTime">
+        <button id="TMstartB">Start</button>
+        <button id="TMstopB">Stop</button>
+        <button id="TMresetB">Reset</button>
+      </div>
+      <div id="Alarm" class="section">
+        Alarm
+        <p id="ALtime">00:00:00</p>
+        <input type="text" id="ALinputTime">
+        <button id="ALsetB">Set Alarm</button>
+        <button id="ALclearB">Clear Alarm</button>
+      </div>
+    </div>
+    <script>
+      const SWtimeDisplay = document.getElementById("SWtime");
+      const SWstartB = document.getElementById("SWstartB");
+      const SWstopB = document.getElementById("SWstopB");
+      const SWresetB = document.getElementById("SWresetB");
+      let SWinterval;
+      let SWstartTime;
+      let SWelapsedTime = 0;
+      SWstartB.addEventListener("click", SWstart);
+      SWstopB.addEventListener("click", SWstop);
+      SWresetB.addEventListener("click", SWreset);
+
+      const TMtimeDisplay = document.getElementById("TMtime");
+      const TMinputTime = document.getElementById("TMinputTime");
+      const TMstartB = document.getElementById("TMstartB");
+      const TMstopB = document.getElementById("TMstopB");
+      const TMresetB = document.getElementById("TMresetB");
+      let TMinterval;
+      let TMtime;
+      TMstartB.addEventListener("click", TMstart);
+      TMstopB.addEventListener("click", TMstop);
+      TMresetB.addEventListener("click", TMreset);
+
+      const ALtimeDisplay = document.getElementById("ALtime");
+      const ALinputTime = document.getElementById("ALinputTime");
+      const ALsetB = document.getElementById("ALsetB");
+      const AlclearB = document.getElementById("ALclearB");
+      let ALinterval;
+      let ALalarmTime;
+      ALsetB.addEventListener("click", ALsetAlarm);
+      AlclearB.addEventListener("click", ALclearAlarm);
+
+      const B1 = document.getElementById("B1");
+      const B2 = document.getElementById("B2");
+      const B3 = document.getElementById("B3");
+      const Stopwatch = document.getElementById("Stopwatch");
+      const Timer = document.getElementById("Timer");
+      const Alarm = document.getElementById("Alarm");
+      B1.addEventListener("click", () => {
+        showSection(Stopwatch);
+      });
+      B2.addEventListener("click", () => {
+        showSection(Timer);
+      });
+      B3.addEventListener("click", () => {
+        showSection(Alarm);
+      });
+    </script>
+  </body>
+</html>
