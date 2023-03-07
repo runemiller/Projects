@@ -1,0 +1,35 @@
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+#product-list, #basket-list {
+    list-style: none;
+    padding: 0;
+}
+
+#product-list li {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#basket-list li {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#total {
+    font-weight: bold;
+}
