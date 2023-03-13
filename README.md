@@ -2,7 +2,7 @@
 
 #4CS017
 
-Inldues all files relating to my 4CS017 Internet Software Architecture Assignmrnt
+Includes all files relating to my 4CS017 Internet Software Architecture Assignmrnt
 The aims of this assessment was to understand how data is transfered across the interent, and how websites can communicate and connect with each other within a browser. This was achieved by created a dynamic webpage that connected to, added and retrieved data from a database using API scripts.
 
 #5CS023
