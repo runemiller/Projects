@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"
+    content="width=device-width, initial-scale=1">>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .Col {
+          float: left;
+          width: 50%;
+          padding: 10px;
+        }
+        
+        .Row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+    <title>My Weather App</title>
+  </head>
+  <body>
+      <input type="text" id="SearchField"> <button id="SearchButton">Search</button>
+	<h1>Weather In: <span id="City"></span></h1>
+	<div class="Row">
+        <div class="Col">
+            <h4><u>Weather Information</u></h4>
+            <p>Weather Description: <span id="WeathDes"></span></p>
+            <image id="WeathIcon" src=""></image>
+        </div>
+        <div class="Col">
+            <h4><u>Temperature Information</u></h4>
+            <p>Temperature is: <span id="MainTemp"></span>°C</p>
+            <p>Humidity is: <span id="MainHum"></span>%</p>
+            <p>Minimum Temperature is: <span id="MainTempMin"></span>°C</p>
+            <p>Maximum Temperature is: <span id="MainTempMax"></span>°C</p>
+        </div>
+    </div>
+	<script>
+        document.getElementById("SearchButton").addEventListener("click", GetWeather);
+
+        function GetWeather()
+        {
+            var City = document.getElementById("SearchField").value;
+            
+            fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + City + '&appid=292024376621b620e4dec02b6e8d494a')
+                
+                .then(response => response.json())
+                .then(response => {
+            
+                console.log(response);
+                    
+                document.getElementById("City").innerHTML = response.name;
+                document.getElementById("WeathDes").innerHTML = response.weather[0].description;
+                document.getElementById("MainTemp").innerHTML = response.main.temp;
+                document.getElementById("MainHum").innerHTML = response.main.humidity;
+                document.getElementById("MainTempMin").innerHTML = response.main.temp_min;
+                document.getElementById("MainTempMax").innerHTML = response.main.temp_max;
+
+                var icon = response.weather[0].icon;
+                var icon_url = 'http://openweathermap.org/img/wn/' + icon + '@4x.png'
+                document.getElementById("WeathIcon").src = icon_url;
+                    
+                })
+                .catch(err => {
+                
+                console.log(err);
+            });
+        }	
+	</script>
+  </body>
+</html>

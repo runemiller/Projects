@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"
+    content="width=device-width, initial-scale=1">>
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        .Col {
+          float: left;
+          text-align: center;
+          width: 33%;
+          padding: 10px;
+        }
+        
+        .Row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+    </style>
+    <title>My Weather App</title>
+  </head>
+  <body>
+      <input type="text" id="SearchField"> <button id="SearchButton">Search</button>
+      <button id="GeoButton">Search With Geo Location</button>
+	<h1>Weather In: <span id="City"></span></h1>
+    <h4><u>Additional Information</u></h4>
+    <p>Country Code: <span id="SysCountry"></span></p>
+    <p>Timezone: UTC+<span id="Timezone"></span></p>
+    <p><span id="Lat"></span>, <span id="Lon"></span></p>
+	<div class="Row">
+        <div class="Col">
+            <h4><u>Weather Information</u></h4>
+            <p>Cloudiness is: <span id="Clouds"></span>%</p>
+            <p>Weather Description: <span id="WeathDes"></span></p>
+            <image id="WeathIcon" src=""></image>
+        </div>
+        <div class="Col">
+            <h4><u>Temperature Information</u></h4>
+            <p>Temperature is: <span id="MainTemp"></span>°C</p>
+            <p>Humidity is: <span id="MainHum"></span>%</p>
+            <p>Minimum Temperature is: <span id="MainTempMin"></span>°C</p>
+            <p>Maximum Temperature is: <span id="MainTempMax"></span>°C</p>
+        </div>
+        <div class="Col">
+            <h4><u>Wind Information</u></h4>
+            <p>Wind Speed is: <span id="WindSpeed"></span> meters per second</p>
+            <p>Wind Direction is: <span id="WindDir"></span>°</p>
+        </div>
+    </div>
+    
+	<script>
+        document.getElementById("GeoButton").addEventListener("click", GeoLocation);
+
+        function GeoLocation()
+        {
+            navigator.geolocation.getCurrentPosition(GetWeather2)
+            function GetWeather2(position)
+            {
+                var Lat = position.coords.latitude;
+                var Lon = position.coords.longitude;
+                console.log(position.coords.latitude);
+                console.log(position.coords.longitude);
+                
+                fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&lat=' + Lat + '&lon=' + Lon + '&appid=292024376621b620e4dec02b6e8d494a')
+                    
+                    .then(response => response.json())
+                    .then(response => {
+                
+                    console.log(response);
+                        
+                    document.getElementById("City").innerHTML = response.name;
+                    document.getElementById("WeathDes").innerHTML = response.weather[0].description;
+                    document.getElementById("MainTemp").innerHTML = response.main.temp;
+                    document.getElementById("MainHum").innerHTML = response.main.humidity;
+                    document.getElementById("MainTempMin").innerHTML = response.main.temp_min;
+                    document.getElementById("MainTempMax").innerHTML = response.main.temp_max;
+                    document.getElementById("WindSpeed").innerHTML = response.wind.speed;
+                    document.getElementById("WindDir").innerHTML = response.wind.deg;
+                    document.getElementById("Clouds").innerHTML = response.clouds.all;
+                    document.getElementById("SysCountry").innerHTML = response.sys.country;
+                    document.getElementById("Timezone").innerHTML = response.timezone / 60 / 60;
+                    document.getElementById("Lat").innerHTML = response.coord.lat;
+                    document.getElementById("Lon").innerHTML = response.coord.lon;
+
+                    var icon = response.weather[0].icon;
+                    var icon_url = 'http://openweathermap.org/img/wn/' + icon + '@4x.png'
+                    document.getElementById("WeathIcon").src = icon_url;
+                        
+                    })
+                    .catch(err => {
+                    
+                    console.log(err);
+                });
+            }	
+        }
+
+        document.getElementById("SearchButton").addEventListener("click", GetWeather);
+
+        function GetWeather()
+        {
+            var City = document.getElementById("SearchField").value;
+            
+            fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + City + '&appid=292024376621b620e4dec02b6e8d494a')
+                
+                .then(response => response.json())
+                .then(response => {
+            
+                console.log(response);
+                    
+                document.getElementById("City").innerHTML = response.name;
+                document.getElementById("WeathDes").innerHTML = response.weather[0].description;
+                document.getElementById("MainTemp").innerHTML = response.main.temp;
+                document.getElementById("MainHum").innerHTML = response.main.humidity;
+                document.getElementById("MainTempMin").innerHTML = response.main.temp_min;
+                document.getElementById("MainTempMax").innerHTML = response.main.temp_max;
+                document.getElementById("WindSpeed").innerHTML = response.wind.speed;
+                document.getElementById("WindDir").innerHTML = response.wind.deg;
+                document.getElementById("Clouds").innerHTML = response.clouds.all;
+                document.getElementById("SysCountry").innerHTML = response.sys.country;
+                document.getElementById("Timezone").innerHTML = response.timezone / 60 / 60;
+                document.getElementById("Lat").innerHTML = response.coord.lat;
+                document.getElementById("Lon").innerHTML = response.coord.lon;
+
+                var icon = response.weather[0].icon;
+                var icon_url = 'http://openweathermap.org/img/wn/' + icon + '@4x.png'
+                document.getElementById("WeathIcon").src = icon_url;
+                    
+                })
+                .catch(err => {
+                
+                console.log(err);
+            });
+        }	
+	</script>
+  </body>
+</html>

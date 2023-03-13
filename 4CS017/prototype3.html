@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">>
+    <style>
+        body {
+          background-color: rgba(255, 255, 255, 1.0);
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: auto auto auto auto;
+          gap: 10px;
+          background-color: #aa85ff;
+          padding: 10px;
+          border:2px solid Black;
+        }
+        .grid-container > div {
+          text-align: center;
+          border:2px solid Black;
+          background-color: rgba(234, 197, 255, 0.8);
+          padding: 20px 0;
+          font-size: 20px;
+        }
+        .item1 {
+          grid-column-start: 1;
+          grid-column-end: 5;
+        }
+        .item2 {
+          grid-column-start: 2;
+          grid-column-end: 4;
+        }
+        .item3 {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+        .item4 {
+          grid-row-start: 3;
+          grid-row-end: 4;
+          grid-column-start: 3;
+          grid-column-end: 5;
+        }
+    </style>
+    <title>My Weather App</title>
+  </head>
+  <body>
+	<h1>Weather Application</h1>
+	<div class="grid-container">
+        <div class="item1">
+            <h3>Weather In: <span id="City"></span></h3>
+        </div>
+        <div class="item2">
+            <p>Weather Last Updated:</p>
+            <p><span id="DateTime"></span></p>
+        </div>
+        <div class="item3">
+            <h4><u>Weather Information</u></h4>
+            <p>Weather Description: <span id="Description"></span></p>
+        </div>
+        <div class="item4">
+            <h4><u>Temperature Information</u></h4>
+            <p>Temperature is: <span id="Temp"></span>°C</p>
+            <p>Wind is: <span id="Wind"></span>m/s</p>
+            <p>Minimum Temperature is: <span id="TempMin"></span>°C</p>
+            <p>Maximum Temperature is: <span id="TempMax"></span>°C</p>
+        </div>
+  </div>
+	<script>
+    if(localStorage.when != null
+      && parseInt(localStorage.when) + 100 > Date.now()) {
+        let freshness = Math.round((Date.now() - localStorage.when)/1000) + " second(s)";
+        document.getElementById("City").innerHTML = localStorage.City;
+        document.getElementById("Description").innerHTML = localStorage.Description;
+        document.getElementById("Temp").innerHTML = localStorage.Temp;
+        document.getElementById("DateTime").innerHTML = localStorage.DateTime;
+        document.getElementById("Wind").innerHTML = localStorage.Wind;
+        document.getElementById("TempMin").innerHTML = localStorage.TempMin;
+        document.getElementById("TempMax").innerHTML = localStorage.TempMax;
+        document.getElementById("Updated").innerHTML = freshness;
+      }
+
+      else {
+        fetch('https://mi-linux.wlv.ac.uk/~2112834/4CS017/my-api.php?weather_city=london')
+            
+            .then(response => response.json())
+            .then(response => {
+        
+            console.log(response);
+                
+            document.getElementById("City").innerHTML = response.weather_city;
+            document.getElementById("Description").innerHTML = response.weather_description;
+            document.getElementById("Temp").innerHTML = response.weather_temperature;
+            document.getElementById("DateTime").innerHTML = response.weather_when;
+            document.getElementById("Wind").innerHTML = response.weather_wind;
+            document.getElementById("TempMin").innerHTML = response.weather_tempmin;
+            document.getElementById("TempMax").innerHTML = response.weather_tempmax;
+
+            localStorage.City = response.weather_city;
+            localStorage.Description = response.weather_description;
+            localStorage.Temp = response.weather_temperature;
+            localStorage.DateTime = response.weather_when;
+            localStorage.Wind = response.weather_wind;
+            localStorage.TempMin = response.weather_tempmin;
+            localStorage.TempMax = response.weather_tempmax;
+            localStorage.when = Date.now();
+
+            })
+            .catch(err => {
+            
+            console.log(err);
+        });
+      }
+	</script>
+  </body>
+</html>
