@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: rgb(19 29 59);
+}
+
+.userCard {
+    position: relative;
+    height: 100vh;
+    padding: 30px 10px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 300px);
+    row-gap: 20px;
+}
+
+.card {
+    background-color: rgb(19 29 59);
+    transition: all 0.3s;
+    height: 350px;
+    border-radius: 10px;
+    border: 1px solid skyblue;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+}
+
+.moving {
+    opacity: 0.4;
+    margin: 20px 0;
+    text-align: center;
+    font-size: 3rem;
+    display: inline-flex;
+    transform: translateX(100px);
+    position: relative;
+    transition: all 0.7s;
+}
+
+.moving i {
+    font-size: 3rem;
+    margin-right: 15px;
+    display: none;
+}
+
+.card:hover {
+    background-color: rgb(20, 27, 49);
+    transform: translateY(-6px);
+}
+
+.card:hover .moving, .card:hover .moving i {
+    transform: translateX(0px) rotate(360deg);
+    opacity: 1;
+    display: flex;
+}
+
+.card:hover .instagram,
+.insta {
+    color: palevioletred;
+}
+
+.card:hover .youtube,
+.yt {
+    color: #ff0000;
+}
+
+.card:hover .twitter,
+.tw {
+    color: #1d9bf0;
+}
+
+.card:hover .facebook,
+.fb {
+    color: #1198f6;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+}
+
+.card p {
+    font-weight: 100;
+}

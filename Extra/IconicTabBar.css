@@ -239,7 +239,7 @@ input:checked + label {
 }
 
 input:checked + label[for=m-home] {
-    --sel: #39alf4;
+    --sel: #39a1f4;
     height: 125px;
 }
 
@@ -248,7 +248,7 @@ input:checked + label[for=m-search] {
     height: 125px;
 }
 
-input:checked + label[for=m-notfication] {
+input:checked + label[for=m-notifications] {
     --sel: #84a91c;
     height: 125px;
 }
