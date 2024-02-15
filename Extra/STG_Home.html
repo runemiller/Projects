@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://mi-linux.wlv.ac.uk/~2112834/PersonalProjects/mn_favicon.png">
+    <title>Guess The Song - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        #home-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, p {
+            color: #333;
+        }
+
+        button {
+            background-color: #00a9ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="home-container">
+        <h1>Welcome To:  Guess The Song!</h1>
+        <p>Test your music knowledge by guessing the song title from its initials.</p>
+        <p>Each correct guess is worth 5 points.</p>
+        <p>You have an additional two hints, the song's artist and the title of the album the song features on.</p>
+        <p>These hints can be redeemed at the cost of 2 points per hint.</p>
+        <p>Redeem only one, and a correct guess is worth 3 points. Redeem both, and a correct guess is worth only 1 point.</p>
+        <p>The game doesn't stop until you guess incorrectly.</p>
+
+        <br>
+
+        <p>Note: Capitals are not required in your guess.</p>
+        <p>Note: Punctuation has been removed too, meaning any commas, apostrophes, et cetera, are not in the titles.</p>
+        <p>Example: "It's The Song" can be guessed as "its the song".</p>
+        
+        <br>
+
+        <p>Your points are saved into a leaderboard, keep guessing until you get the highest score!</p>
+        <p>Click the button below to start playing!</p>
+        <button onclick="navigateToGame()">Play Now</button>
+    </div>
+
+    <script>
+        function navigateToGame() {
+            window.location.href = 'https://mi-linux.wlv.ac.uk/~2112834/PersonalProjects/SongTitleGame.html';
+        }
+    </script>
+</body>
+</html>

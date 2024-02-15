@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://mi-linux.wlv.ac.uk/~2112834/PersonalProjects/mn_favicon.png">
+    <link rel="stylesheet" href="https://mi-linux.wlv.ac.uk/~2112834/PersonalProjects/STG_Style.css">
+    <title>Guess The Song - Game</title>
+</head>
+<body>
+    <div id="game-container">
+        <h1>Guess The Song</h1>
+        <label for="username">Enter Your Username: </label>
+        <input type="text" id="username" placeholder="Your Username">
+
+        <button onclick="getRandomSong()">Get Random Song</button>
+        <p id="result"></p>
+        <p id="artist" class="hidden">Artist: <span id="artistValue"></span></p>
+        <p id="album" class="hidden">Album: <span id="albumValue"></span></p>
+        <input type="text" id="guessInput" placeholder="Your Guess">
+        <button onclick="checkGuess()">Check Guess</button>
+        <button onclick="reveal('artist')">Reveal Artist</button>
+        <button onclick="reveal('album')">Reveal Album</button>
+        <p id="feedback"></p>
+        <p id="score">Score: 0</p>
+        <p id="highScore">High Score: 0</p>
+        <p id="highScorer">Highest Scorer: </p>
+    </div>
+
+    <script src="https://mi-linux.wlv.ac.uk/~2112834/PersonalProjects/STG_Script.js"></script>
+</body>
+</html>
