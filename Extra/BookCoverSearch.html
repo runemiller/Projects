@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Cover Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        #cover {
+            margin-top: 20px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Book Cover Search</h1>
+    <label for="title">Enter book title:</label>
+    <input type="text" id="title" placeholder="e.g., A Game of Thrones">
+    <button onclick="searchBook()">Search</button>
+    <div id="cover"></div>
+
+    <script>
+        function searchBook() {
+            const title = document.getElementById('title').value;
+            const apiUrl = `https://openlibrary.org/search.json?title=${title}&limit=1`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => displayBookCover(data))
+                .catch(error => console.error('Error:', error));
+        }
+
+        function displayBookCover(data) {
+            const coverElement = document.getElementById('cover');
+
+            if (data.docs && data.docs.length > 0) {
+                const coverUrl = `https://covers.openlibrary.org/b/id/${data.docs[0].cover_i}-L.jpg`;
+                coverElement.innerHTML = `<img src="${coverUrl}" alt="Book Cover">`;
+            } else {
+                coverElement.innerHTML = 'No cover found';
+            }
+        }
+    </script>
+</body>
+</html>
