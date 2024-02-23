@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Pen</title>
+    <link rel="stylesheet" href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/style.css">
+    <link rel="icon" type="image/x-icon" href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/6CS007.png">
+</head>
+
+<body>
+    <div id="SideNav" class="sidenav">
+        <a href="javacript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+        <a class="settingsbtn" onclick="openSettings()">&#9881;</a>
+        <br><br>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Home.html">Home</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Products.html">Products</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Contact.html">Contact Us</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Account.html">Account</a>
+        <br><br><br>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Help.html">Help</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Partners.html">Partners</a>
+        <a href="https://mi-linux.wlv.ac.uk/~2112834/6CS007/Legal.html">Legal</a>
+    </div>
+
+    <div id="MainBody">
+        <header>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
+            <h1>Miller's Books & Things</h1>
+        </header>
+
+        <div class="grid-container" style="grid-template-columns: 3; grid-template-rows: 3;">
+            <div class="item1">
+                <img src="../pens/alstarfnt.jpeg">
+                <figcaption style="text-align: left; margin-left: 10px; width: auto !important;">All-Star Fountain </figcaption>
+            </div>
+            <div class="item2" style="text-align: center;">
+                2
+            </div>
+            <div class="item3" style="text-align: center;">
+                3
+            </div>
+            <div class="item4" style="text-align: center;">
+                4
+            </div>
+            <div class="item5" style="text-align: center;">
+                5
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openNav() {
+        document.getElementById("SideNav").style.width = "90%";
+        document.getElementById("main").style.marginLeft = "90%";
+    }
+
+    function closeNav() {
+        document.getElementById("SideNav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+
+    function openSettings() {
+        window.location = 'https://mi-linux.wlv.ac.uk/~2112834/6CS007/Settings.html';
+    }
+    </script>
+</body>
+</html>

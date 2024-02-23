@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="6CS007.png">
+</head>
+
+<body onkeypress="keyboardAcc(event)">
+    <div id="SideNav" class="sidenav">
+        <a href="javacript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+        <a class="settingsbtn" onclick="openSettings()">&#9881;</a>
+        <br><br>
+        <a href="Home.html">Home</a>
+        <a href="Products.html">Products</a>
+        <a href="Contact.html">Contact Us</a>
+        <a href="Account.html">Account</a>
+        <br><br><br>
+        <a href="Help.html">Help</a>
+        <a href="Partners.html">Partners</a>
+        <a href="Legal.html">Legal</a>
+		<br><br><br>
+		<a id="google_translate_element"></a>
+    </div>
+
+    <div id="MainBody">
+        <header>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
+            <h1>Miller's Books & Things</h1>
+        </header>
+
+        <h2>Home</h2>
+        <p>Content yet to be added.</p>
+        <a href="productorder.txt">List of all Products</a>
+
+        <div class="grid-container">
+            <div class="grid-item">
+                <figure>
+                    <img class="book_home" src="products/books/nameofthewind.jpeg">
+                    <figcaption><a href="products/pages/nameofthewind.html" target="_blank">The Name of The Wind (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/wisemansfear.jpeg">
+                    <figcaption><a href="products/pages/wisemansfear.html" target="_blank">The Wise Man's Fear (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/goodomens.jpeg">
+                    <figcaption><a href="products/pages/goodomens.html" target="_blank">Good Omens (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/ttt.jpeg">
+                    <figcaption><a href="products/pages/ttt.html" target="_blank">Tomorrow and Tomorrow and Tomorrow (Paperback)</a></figcaption>
+                </figure>
+            </div>
+            <div class="grid-item">
+                <figure>
+					<img src="products/pens/carchelemanbllpt.jpeg">
+                    <figcaption style="width: auto;"><a href="products/pages/carchelemanbllpt.html" target="_blank">Carche Leman Ballpoint (Pen)</a></figcaption>
+				</figure>
+				<figure>
+					<img src="products/pens/vpenfnt.jpeg">
+                    <figcaption style="width: auto;"><a href="products/pages/vpenfnt.html" target="_blank">V-Pen Fountain (Pen)</a></figcaption>
+				</figure>
+				<figure>
+					<img src="products/pens/vsign.jpeg">
+                    <figcaption style="width: auto;"><a href="products/pages/vsign.html" target="_blank">V-Sign (Pen)</a></figcaption>
+				</figure>
+				<figure>
+					<img src="products/pens/alstarfnt.jpeg">
+                    <figcaption style="width: auto;"><a href="products/pages/alstarfnt.html" target="_blank">All-Star Fountain (Pen)</a></figcaption>
+				</figure>
+            </div>
+            <div class="grid-item">
+                <figure>
+                    <img class="mark_home" style="width: 98px;" src="products/bookmarks/celestial.jpeg">
+                    <figcaption><a href="products/pages/celestial.html" target="_blank">Celestial (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" style="width: 98px;" src="products/bookmarks/solarsystem.jpeg">
+                    <figcaption><a href="products/pages/solarsystem.html" target="_blank">Solar System (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" src="products/bookmarks/aerial.jpeg">
+                    <figcaption><a href="products/pages/aerial.html" target="_blank">Aerial (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" src="products/bookmarks/greatwave.jpeg">
+                    <figcaption><a href="products/pages/greatwave.html" target="_blank">Great Wave (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" src="products/bookmarks/alphabet.jpeg">
+                    <figcaption><a href="products/pages/alphabet.html" target="_blank">Alphabet (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" style="width: 98px; margin-left: 25%;" src="products/bookmarks/sun.jpeg">
+                    <figcaption><a href="products/pages/sun.html" target="_blank">Rising Sun (Bookmark)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="mark_home" src="products/bookmarks/dinosaurs.jpeg">
+                    <figcaption><a href="products/pages/dinosaurs.html" target="_blank">Dinosaurs (Bookmark)</a></figcaption>
+                </figure>
+            </div>
+            <div class="grid-item">
+                <figure>
+                    <img class="book_home" src="products/books/annihilation.jpeg">
+                    <figcaption><a href="products/pages/annihilation.html" target="_blank">Annihilation (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/authority.jpeg">
+                    <figcaption><a href="products/pages/authority.html" target="_blank">Authority (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/acceptance.jpeg">
+                    <figcaption><a href="products/pages/acceptance.html" target="_blank">Acceptance (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/dirtyheads.jpeg">
+                    <figcaption><a href="products/pages/dirtyheads.html" target="_blank">Dirty Heads (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/misery.jpeg">
+                    <figcaption><a href="products/pages/misery.html" target="_blank">Misery (Paperback)</a></figcaption>
+                </figure>
+                <figure>
+                    <img class="book_home" src="products/books/helpmeet.jpeg">
+                    <figcaption><a href="products/pages/helpmeet.html" target="_blank">Helpmeet (Paperback)</a></figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <script src="function.js">
+    </script>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+			pageLanguage: 'en',
+			 autoDisplay: 'true',
+			layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+		}, 'google_translate_element');
+	}
+	</script>
+	<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+</body>
+</html>
