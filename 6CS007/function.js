@@ -9,7 +9,7 @@ function closeNav() {
 }
 
 function openSettings() {
-	window.location = 'Settings.html';
+	window.location = 'http://localhost/6CS007/Settings.html';
 }
 
 function keyboardAcc(event) {
