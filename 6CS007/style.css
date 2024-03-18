@@ -12,6 +12,14 @@ body > .skiptranslate {
     display: none;
 }
 
+#title {
+    color: orange;
+}
+
+#icn, #icn2 {
+    color: orange;
+}
+
 h2, p {
     margin-left: 10px;
 }
@@ -35,6 +43,19 @@ header {
     transition: 0.5s;
 }
 
+.settings {
+    height: 90%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: orange;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+    overflow-y: scroll;
+}
+
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -44,8 +65,29 @@ header {
     transition: 0.3a
 }
 
+.settings a, .container, .settings p {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3a
+}
+
+.settings label {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    transition: 0.3a
+}
+
 .sidenav a:hover {
     color: #f1f1f1;
+    font-weight: bold;
+}
+
+.settings a:hover {
+    color: rgb(63, 63, 63);
     font-weight: bold;
 }
 
@@ -57,7 +99,7 @@ header {
     margin-left: 50px
 }
 
-.sidenav .settingsbtn {
+.settings .settingsbtn {
     position: absolute;
     top: 45px;
     right: 25px;
@@ -121,7 +163,7 @@ figcaption {
     font-family: "Lato", sans-serif;
 }
 
-.book_home {
+#imageA, #imageB, #imageC, #imageD, #imageE, #imageF, #imageG, #imageH, #imageI, #imageJ {
     height: 235px;
     width: 155px;
 }
@@ -199,7 +241,7 @@ nav {
     display: flex;
     justify-content: space-evenly;
     background-color: #329acd;
-    color: #fff;
+    color: orange;
     padding: 5px;
 }
 
@@ -216,7 +258,7 @@ nav ul li {
 }
 
 nav ul li p {
-    color: #fff;
+    color: orange;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -227,7 +269,7 @@ nav ul li p {
 .navbutton {
     background-color: #329acd;
     border: none;
-    color: white;
+    color: orange;
     padding: 15px 25px;
     text-align: center;
     text-decoration: none;
@@ -280,4 +322,56 @@ nav ul li p {
 	border-radius:3px;
 	padding:6px 8px;
 	font-family: "Lato", sans-serif;
+}
+
+.popup, .popup2, .popup3 {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.popup .popuptext, .popup2 .popuptext2, .popup3 .popuptext3 {
+    visibility: hidden;
+    width: 160px;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: relative;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.popup .popuptext::after, .popup2 .popuptext2::after, .popup3 .popuptext3::after {
+    content: "";
+    position: relative;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+}
+
+.popup .show, .popup2 .show, .popup3 .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }

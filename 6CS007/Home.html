@@ -10,7 +10,6 @@
 <body onkeypress="keyboardAcc(event)">
     <div id="SideNav" class="sidenav">
         <a href="javacript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
-        <a class="settingsbtn" onclick="openSettings()">&#9881;</a>
         <br><br>
         <a href="Home.html">Home</a>
         <a href="Products.html">Products</a>
@@ -24,11 +23,49 @@
 		<a id="google_translate_element"></a>
     </div>
 
+    <div id="Settings" class="settings">
+        <a></a>
+        <a href="javacript:void(0)" class="settingsbtn" onclick="closeSettings()">&#9881;</a>
+        <br><br>
+        <div class="popup" onclick="popUp()">
+            <p id="CTSA">Color Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext" id="myPopup">Changes text and block colour for those with colour blindness</span>
+        </div>
+        <div class="container">
+            <input type="checkbox" id="colorCheckboxOrig"> <label for="colorCheckboxOrig" id="CTSC">Original</label>
+            <input type="checkbox" id="colorCheckboxDeutan"> <label for="colorCheckboxDeutan" id="CTSD">Deuteranomaly</label>
+            <input type="checkbox" id="colorCheckboxTritan"> <label for="colorCheckboxTritan" id="CTSE">Tritanomaly</label>
+            <input type="checkbox" id="colorCheckboxProtan"> <label for="colorCheckboxProtan" id="CTSF">Protanomaly</label>
+        </div>
+
+        <br><br>
+
+        <div class="popup2" onclick="popUp2()">
+            <p id="CTSB">Text Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext2" id="myPopup2">Changes text size with slider</span>
+        </div>
+        <div class="container">
+            <label for="fontSizeRange" id="CTSG">Text Size:</label>
+            <input type="range" id="fontSizeRange" min="10" max="40" step="1">
+        </div>
+
+        <br><br>
+
+        <div class="popup3" onclick="popUp3()">
+            <p id="CTSH">Image Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext3" id="myPopup3">Changes image size with slider</span>
+        </div>
+        <div class="container">
+            <label for="imageSizeRange" id="CTSI">Image Size:</label>
+            <input type="range" id="imageSizeRange" min="50" max="200" step="1" value="100">
+        </div>
+    </div>
+
     <div id="MainBody">
-        <header>
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <span style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
-            <h1>Miller's Books & Things</h1>
+        <header id="header">
+            <span id="icn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span id="icn2" style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
+            <h1 id="title">Miller's Books & Things</h1>
         </header>
 
         <h2>Home</h2>
@@ -38,19 +75,19 @@
         <div class="grid-container">
             <div class="grid-item">
                 <figure>
-                    <img class="book_home" src="products/books/nameofthewind.jpeg">
+                    <img id="imageA" src="products/books/nameofthewind.jpeg">
                     <figcaption><a href="products/pages/nameofthewind.html" target="_blank">The Name of The Wind (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/wisemansfear.jpeg">
+                    <img id="imageB" src="products/books/wisemansfear.jpeg">
                     <figcaption><a href="products/pages/wisemansfear.html" target="_blank">The Wise Man's Fear (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/goodomens.jpeg">
+                    <img id="imageC" src="products/books/goodomens.jpeg">
                     <figcaption><a href="products/pages/goodomens.html" target="_blank">Good Omens (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/ttt.jpeg">
+                    <img id="imageD" src="products/books/ttt.jpeg">
                     <figcaption><a href="products/pages/ttt.html" target="_blank">Tomorrow and Tomorrow and Tomorrow (Paperback)</a></figcaption>
                 </figure>
             </div>
@@ -104,27 +141,27 @@
             </div>
             <div class="grid-item">
                 <figure>
-                    <img class="book_home" src="products/books/annihilation.jpeg">
+                    <img id="imageE" src="products/books/annihilation.jpeg">
                     <figcaption><a href="products/pages/annihilation.html" target="_blank">Annihilation (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/authority.jpeg">
+                    <img id="imageF" src="products/books/authority.jpeg">
                     <figcaption><a href="products/pages/authority.html" target="_blank">Authority (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/acceptance.jpeg">
+                    <img id="imageG" src="products/books/acceptance.jpeg">
                     <figcaption><a href="products/pages/acceptance.html" target="_blank">Acceptance (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/dirtyheads.jpeg">
+                    <img id="imageH" src="products/books/dirtyheads.jpeg">
                     <figcaption><a href="products/pages/dirtyheads.html" target="_blank">Dirty Heads (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/misery.jpeg">
+                    <img id="imageI" src="products/books/misery.jpeg">
                     <figcaption><a href="products/pages/misery.html" target="_blank">Misery (Paperback)</a></figcaption>
                 </figure>
                 <figure>
-                    <img class="book_home" src="products/books/helpmeet.jpeg">
+                    <img id="imageJ" src="products/books/helpmeet.jpeg">
                     <figcaption><a href="products/pages/helpmeet.html" target="_blank">Helpmeet (Paperback)</a></figcaption>
                 </figure>
             </div>

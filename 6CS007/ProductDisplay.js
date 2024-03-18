@@ -1,32 +1,180 @@
 function openNav() {
-    document.getElementById("SideNav").style.width = "90%";
-    document.getElementById("main").style.marginLeft = "90%";
+	document.getElementById("SideNav").style.width = "90%";
+	document.getElementById("main").style.marginLeft = "90%";
 }
 
 function closeNav() {
-    document.getElementById("SideNav").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+	document.getElementById("SideNav").style.width = "0";
+	document.getElementById("main").style.marginLeft = "0";
 }
 
 function openSettings() {
-    window.location = 'Settings.html';
+	document.getElementById("Settings").style.width = "90%";
+	document.getElementById("main").style.marginLeft = "90%";
+}
+
+function closeSettings() {
+	document.getElementById("Settings").style.width = "0";
+	document.getElementById("main").style.marginLeft = "0";
+}
+
+function goToHome() {
+	window.location = 'http://localhost/6CS007/Home.html';
 }
 
 function keyboardAcc(event) {
-		let key = event.key;
-		if (key == "S") {
-			openSettings();
-		}
-		else if (key == "N") {
-			openNav();
-		}
-		else if (key == "M") {
-			closeNav();
-		}
-		else {
-			
-		}
+	let key = event.key;
+	if (key == "S") {
+		openSettings();
 	}
+	else if (key == "D") {
+		closeSettings();
+	}
+	else if (key == "N") {
+		openNav();
+	}
+	else if (key == "M") {
+		closeNav();
+	}
+	else if (key == "H") {
+		goToHome();
+	}
+	else {
+
+	}
+}
+
+function setUpColor() {
+	const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+	const title = document.getElementById('title');
+	const icn = document.getElementById('icn');
+	const icn2 = document.getElementById('icn2');
+	const header = document.getElementById('header');
+	const settings = document.getElementById('Settings');
+    const nav = document.getElementById('nav');
+    const all = document.getElementById('All');
+    const books = document.getElementById('Books');
+    const marks = document.getElementById('Marks');
+    const pens = document.getElementById('Pens');
+	
+	checkboxes.forEach(function(checkbox) {
+		checkbox.addEventListener('change', function() {
+			checkboxes.forEach(function(cb) {
+				if (cb !== checkbox) {
+					cb.checked = false;
+				}
+			});
+			if (document.getElementById('colorCheckboxOrig').checked) {
+				Tcolor = 'orange';
+				Bcolor = '#329acd';
+			} else if (document.getElementById('colorCheckboxDeutan').checked) {
+				Tcolor = '#ff6a00';
+				Bcolor = '#216486';
+			} else if (document.getElementById('colorCheckboxTritan').checked) {
+				Tcolor = '#ffd000';
+				Bcolor = '#3dbeff';
+			} else if (document.getElementById('colorCheckboxProtan').checked) {
+				Tcolor = '#ff9500';
+				Bcolor = '#32cd9c';
+			}
+			title.style.color = Tcolor;
+			icn.style.color = Tcolor;
+			icn2.style.color = Tcolor;
+			header.style.backgroundColor = Bcolor;
+			settings.style.backgroundColor = Tcolor;
+            nav.style.backgroundColor = Bcolor;
+            all.style.color = Tcolor;
+            all.style.backgroundColor = Bcolor;
+            books.style.color = Tcolor;
+            books.style.backgroundColor = Bcolor;
+            marks.style.color = Tcolor;
+            marks.style.backgroundColor = Bcolor;
+            pens.style.color = Tcolor;
+            pens.style.backgroundColor = Bcolor;
+			localStorage.setItem('selectedTColor', Tcolor); 
+			localStorage.setItem('selectedBColor', Bcolor); 
+		});
+	});
+
+	const storedTColor = localStorage.getItem('selectedTColor');
+	const storedBColor = localStorage.getItem('selectedBColor');
+    if (storedTColor && storedBColor) {
+		title.style.color = storedTColor;
+		icn.style.color = storedTColor;
+		icn2.style.color = storedTColor;
+		header.style.backgroundColor = storedBColor;
+		settings.style.backgroundColor = storedTColor;
+        nav.style.backgroundColor = storedBColor;
+        all.style.color = storedTColor;
+        all.style.backgroundColor = storedBColor;
+        books.style.color = storedTColor;
+        books.style.backgroundColor = storedBColor;
+        marks.style.color = storedTColor;
+        marks.style.backgroundColor = storedBColor;
+        pens.style.color = storedTColor;
+        pens.style.backgroundColor = storedBColor;
+    }
+}
+
+window.addEventListener('load', setUpColor);
+
+function setupText() {
+    const fontSizeRange = document.getElementById('fontSizeRange');
+    const textA = document.getElementById('CTSA');
+	const textB = document.getElementById('CTSB');
+	const textC = document.getElementById('CTSC');
+	const textD = document.getElementById('CTSD');
+	const textE = document.getElementById('CTSE');
+	const textF = document.getElementById('CTSF');
+	const textG = document.getElementById('CTSG');
+	const textH = document.getElementById('MainBody');
+	const textI = document.getElementById('header');
+	const textJ = document.getElementById('icn');
+	const textK = document.getElementById('icn2');
+
+    fontSizeRange.addEventListener('input', function() {
+        textA.style.fontSize = this.value + 'px';
+		textB.style.fontSize = this.value + 'px';
+		textC.style.fontSize = this.value + 'px';
+		textD.style.fontSize = this.value + 'px';
+		textE.style.fontSize = this.value + 'px';
+		textF.style.fontSize = this.value + 'px';
+		textG.style.fontSize = this.value + 'px';
+		textH.style.fontSize = this.value + 'px';
+		textI.style.fontSize = this.value + 'px';
+		textJ.style.fontSize = this.value + 'px';
+		textK.style.fontSize = this.value + 'px';
+        localStorage.setItem('selectedFontSize', this.value);
+    });
+
+    const storedFontSize = localStorage.getItem('selectedFontSize');
+    if (storedFontSize) {
+        textA.style.fontSize = storedFontSize + 'px';
+		textB.style.fontSize = storedFontSize + 'px';
+		textC.style.fontSize = storedFontSize + 'px';
+		textD.style.fontSize = storedFontSize + 'px';
+		textE.style.fontSize = storedFontSize + 'px';
+		textF.style.fontSize = storedFontSize + 'px';
+		textG.style.fontSize = storedFontSize + 'px';
+		textH.style.fontSize = storedFontSize + 'px';
+		textI.style.fontSize = storedFontSize + 'px';
+		textJ.style.fontSize = storedFontSize + 'px';
+		textK.style.fontSize = storedFontSize + 'px';
+        fontSizeRange.value = storedFontSize;
+    }
+}
+
+window.addEventListener('load', setupText);
+
+function popUp() {
+	var popup = document.getElementById('myPopup');
+	popup.classList.toggle('show');
+}
+
+function popUp2() {
+	var popup = document.getElementById('myPopup2');
+	popup.classList.toggle('show');
+}
 
 const products = [{
         id: 1,

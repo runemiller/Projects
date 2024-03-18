@@ -10,7 +10,6 @@
 <body onkeypress="keyboardAcc(event)">
     <div id="SideNav" class="sidenav">
         <a href="javacript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
-        <a class="settingsbtn" onclick="openSettings()">&#9881;</a>
         <br><br>
         <a href="Home.html">Home</a>
         <a href="Products.html">Products</a>
@@ -24,14 +23,41 @@
 		<a id="google_translate_element"></a>
     </div>
 
+    <div id="Settings" class="settings">
+        <a></a>
+        <a href="javacript:void(0)" class="settingsbtn" onclick="closeSettings()">&#9881;</a>
+        <br><br>
+        <div class="popup" onclick="popUp()">
+            <p id="CTSA">Color Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext" id="myPopup">Changes text and block colour for those with colour blindness</span>
+        </div>
+        <div class="container">
+            <input type="checkbox" id="colorCheckboxOrig"> <label for="colorCheckboxOrig" id="CTSC">Original</label>
+            <input type="checkbox" id="colorCheckboxDeutan"> <label for="colorCheckboxDeutan" id="CTSD">Deuteranomaly</label>
+            <input type="checkbox" id="colorCheckboxTritan"> <label for="colorCheckboxTritan" id="CTSE">Tritanomaly</label>
+            <input type="checkbox" id="colorCheckboxProtan"> <label for="colorCheckboxProtan" id="CTSF">Protanomaly</label>
+        </div>
+
+        <br><br>
+
+        <div class="popup2" onclick="popUp2()">
+            <p id="CTSB">Text Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext2" id="myPopup2">Changes text size with slider</span>
+        </div>
+        <div class="container">
+            <label for="fontSizeRange" id="CTSG">Text Size:</label>
+            <input type="range" id="fontSizeRange" min="10" max="40" step="1">
+        </div>
+    </div>
+
     <div id="MainBody">
-        <header>
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-            <span style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
-            <h1>Miller's Books & Things</h1>
+        <header id="header">
+            <span id="icn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span id="icn2" style="font-size:30px;cursor:pointer" onclick="openSettings()"><br>&#9881;</span>
+            <h1 id="title">Miller's Books & Things</h1>
         </header>
         <section>
-            <nav>
+            <nav id="nav">
                 <ul>
                     <li><button class="navbutton" id="All">All</button></li>
                     <li><button class="navbutton" id="Books">Books</button></li>
