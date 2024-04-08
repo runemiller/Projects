@@ -121,12 +121,24 @@ header {
 }
 
 .grid-item {
-    overflow-x: auto;
     padding: 5px;
     outline-style: solid;
     outline-color: #111;
     height: auto;
-    display: flex;
+    display: inline-flex;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    
+}
+
+.grid-item2 {
+    text-align: center;
+    height: 20px;
+    display: inline-flex;
+    position: relative;
+    margin-top: -40px;
 }
 
 .grid-item a:link, .grid-item a:visited {
@@ -138,6 +150,26 @@ header {
     color: rgb(0, 98, 255);
     text-decoration: none;
     font-weight: bold;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.scroll-btn-left {
+    left: 48%;
+    transform: translateY(-50%);
+}
+
+.scroll-btn-right {
+    right: 48%;
+    transform: translateY(-50%);
 }
 
 ::-webkit-scrollbar {
@@ -324,7 +356,7 @@ nav ul li p {
 	font-family: "Lato", sans-serif;
 }
 
-.popup, .popup2, .popup3 {
+.popup, .popup2, .popup3, .popup4, .popup5 {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -334,7 +366,7 @@ nav ul li p {
     user-select: none;
 }
 
-.popup .popuptext, .popup2 .popuptext2, .popup3 .popuptext3 {
+.popup .popuptext, .popup2 .popuptext2, .popup3 .popuptext3, .popup4 .popuptext4, .popup5 .popuptext5 {
     visibility: hidden;
     width: 160px;
     background-color: #000000;
@@ -349,7 +381,7 @@ nav ul li p {
     margin-left: -80px;
 }
 
-.popup .popuptext::after, .popup2 .popuptext2::after, .popup3 .popuptext3::after {
+.popup .popuptext::after, .popup2 .popuptext2::after, .popup3 .popuptext3::after, .popup4 .popuptext4::after, .popup5 .popuptext5::after {
     content: "";
     position: relative;
     top: 100%;
@@ -360,7 +392,7 @@ nav ul li p {
     border-color: #000 transparent transparent transparent;
 }
 
-.popup .show, .popup2 .show, .popup3 .show {
+.popup .show, .popup2 .show, .popup3 .show, .popup4 .show, .popup5 .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;

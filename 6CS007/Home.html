@@ -25,7 +25,7 @@
 
     <div id="Settings" class="settings">
         <a></a>
-        <a href="javacript:void(0)" class="settingsbtn" onclick="closeSettings()">&#9881;</a>
+        <a href="javacript:void(0)" class="settingsbtn" id="CTSR" onclick="closeSettings()">&#9881;</a>
         <br><br>
         <div class="popup" onclick="popUp()">
             <p id="CTSA">Color Assist:<sup>&#128712;</sup></p>
@@ -59,6 +59,15 @@
             <label for="imageSizeRange" id="CTSI">Image Size:</label>
             <input type="range" id="imageSizeRange" min="50" max="200" step="1" value="100">
         </div>
+
+        <div class="popup4" onclick="popUp4()">
+            <p id="CTSN">Control Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext4" id="myPopup4">Adds buttons to scroll rather than touch</span>
+        </div>
+        <div class="container">
+            <label for="toggleButtons" id="CTSO">Toggle Control Buttons:</label>
+            <input type="checkbox" id="toggleButtons" onchange="toggleButtons()">
+        </div>
     </div>
 
     <div id="MainBody">
@@ -73,7 +82,7 @@
         <a href="productorder.txt">List of all Products</a>
 
         <div class="grid-container">
-            <div class="grid-item">
+            <div class="grid-item" id="gridItem1">
                 <figure>
                     <img id="imageA" src="products/books/nameofthewind.jpeg">
                     <figcaption><a href="products/pages/nameofthewind.html" target="_blank">The Name of The Wind (Paperback)</a></figcaption>
@@ -91,7 +100,10 @@
                     <figcaption><a href="products/pages/ttt.html" target="_blank">Tomorrow and Tomorrow and Tomorrow (Paperback)</a></figcaption>
                 </figure>
             </div>
-            <div class="grid-item">
+            <div class="grid-item2">
+                <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem1')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem1')">&#10095;</button>
+            </div>
+            <div class="grid-item" id="gridItem2">
                 <figure>
 					<img src="products/pens/carchelemanbllpt.jpeg">
                     <figcaption style="width: auto;"><a href="products/pages/carchelemanbllpt.html" target="_blank">Carche Leman Ballpoint (Pen)</a></figcaption>
@@ -109,7 +121,10 @@
                     <figcaption style="width: auto;"><a href="products/pages/alstarfnt.html" target="_blank">All-Star Fountain (Pen)</a></figcaption>
 				</figure>
             </div>
-            <div class="grid-item">
+            <div class="grid-item2">
+                <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem2')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem2')">&#10095;</button>
+            </div>
+            <div class="grid-item" id="gridItem3">
                 <figure>
                     <img class="mark_home" style="width: 98px;" src="products/bookmarks/celestial.jpeg">
                     <figcaption><a href="products/pages/celestial.html" target="_blank">Celestial (Bookmark)</a></figcaption>
@@ -139,7 +154,10 @@
                     <figcaption><a href="products/pages/dinosaurs.html" target="_blank">Dinosaurs (Bookmark)</a></figcaption>
                 </figure>
             </div>
-            <div class="grid-item">
+            <div class="grid-item2">
+                <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem3')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem3')">&#10095;</button>
+            </div>
+            <div class="grid-item" id="gridItem4">
                 <figure>
                     <img id="imageE" src="products/books/annihilation.jpeg">
                     <figcaption><a href="products/pages/annihilation.html" target="_blank">Annihilation (Paperback)</a></figcaption>
@@ -164,6 +182,9 @@
                     <img id="imageJ" src="products/books/helpmeet.jpeg">
                     <figcaption><a href="products/pages/helpmeet.html" target="_blank">Helpmeet (Paperback)</a></figcaption>
                 </figure>
+            </div>
+            <div class="grid-item2">
+                <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem4')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem4')">&#10095;</button>
             </div>
         </div>
     </div>

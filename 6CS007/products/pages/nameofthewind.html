@@ -10,7 +10,6 @@
 <body onkeypress="keyboardAcc(event)">
     <div id="SideNav" class="sidenav">
         <a href="javacript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
-        <a class="settingsbtn" onclick="openSettings()">&#9881;</a>
         <br><br>
         <a href="http://localhost/6CS007/Home.html">Home</a>
         <a href="http://localhost/6CS007/Products.html">Products</a>
@@ -24,6 +23,62 @@
 		<a id="google_translate_element"></a>
     </div>
 
+    <div id="Settings" class="settings">
+        <a></a>
+        <a href="javacript:void(0)" class="settingsbtn" id="CTSR" onclick="closeSettings()">&#9881;</a>
+        <br><br>
+        <div class="popup" onclick="popUp()">
+            <p id="CTSA">Color Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext" id="myPopup">Changes text and block colour for those with colour blindness</span>
+        </div>
+        <div class="container">
+            <input type="checkbox" id="colorCheckboxOrig"> <label for="colorCheckboxOrig" id="CTSC">Original</label>
+            <input type="checkbox" id="colorCheckboxDeutan"> <label for="colorCheckboxDeutan" id="CTSD">Deuteranomaly</label>
+            <input type="checkbox" id="colorCheckboxTritan"> <label for="colorCheckboxTritan" id="CTSE">Tritanomaly</label>
+            <input type="checkbox" id="colorCheckboxProtan"> <label for="colorCheckboxProtan" id="CTSF">Protanomaly</label>
+        </div>
+
+        <br><br>
+
+        <div class="popup2" onclick="popUp2()">
+            <p id="CTSB">Text Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext2" id="myPopup2">Changes text size with slider</span>
+        </div>
+        <div class="container">
+            <label for="fontSizeRange" id="CTSG">Text Size:</label>
+            <input type="range" id="fontSizeRange" min="10" max="40" step="1">
+        </div>
+
+        <br><br>
+
+        <div class="popup3" onclick="popUp3()">
+            <p id="CTSH">Image Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext3" id="myPopup3">Changes image size with slider</span>
+        </div>
+        <div class="container">
+            <label for="imageSizeRange" id="CTSI">Image Size:</label>
+            <input type="range" id="imageSizeRange" min="50" max="200" step="1" value="100">
+        </div>
+
+        <div class="popup4" onclick="popUp4()">
+            <p id="CTSN">Control Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext4" id="myPopup4">Adds buttons to scroll rather than touch</span>
+        </div>
+        <div class="container">
+            <label for="toggleButtons" id="CTSO">Toggle Control Buttons:</label>
+            <input type="checkbox" id="toggleButtons" onchange="toggleButtons()">
+        </div>
+
+        <div class="popup5" onclick="popUp5()">
+            <p id="CTSP">Sensory Assist:<sup>&#128712;</sup></p>
+            <span class="popuptext5" id="myPopup5">Alter web app to be more sensory friendly. Helpful for those with neurodivergent disabilities</span>
+        </div>
+        <div class="container">
+            <label for="sensoryChanges" id="CTSQ">Toggle Sensory Assist:</label>
+            <input type="checkbox" id="sensoryChanges" onchange="sensoryChanges()">
+        </div>
+    </div>
+
     <div id="MainBody">
         <header id="header">
             <span id="icn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -32,27 +87,27 @@
         </header>
 
         <div class="grid-container" style="grid-template-columns: 3; grid-template-rows: 3;">
-            <div class="item1">
-                <img src="../books/nameofthewind.jpeg">
+            <div class="item1" id="item1">
+                <img id="imageA" title="text here" alt="" src="../books/nameofthewind.jpeg">
                 <figcaption style="text-align: left; margin-left: 10px; width: auto !important;">The Name of The Wind (Paperback)</figcaption>
             </div>
-            <div class="item2" style="text-align: center; background-color: lightgray;">
+            <div class="item2" id="item2" style="text-align: center; vertical-align: middle; background-color: lightgray;">
                 <p>The Name of The Wind</p>
                 <p>Authored by: Patrick Rothfuss</p>
                 <p>Origninally Published on: March 27th, 2007</p>
                 <p>Origninally Published by: DAW Books</p>
             </div>
-            <div class="item3" style="text-align: center; background-color: lightgray;">
+            <div class="item3" id="item3" style="text-align: center; vertical-align: middle; background-color: lightgray;">
                 <h1><b>£9.99</b></h1>
             </div>
-            <div class="item4" style="text-align: center; background-color: lightgray;">
-                <br><p>Told in Kvothe's own voice, this is the tale of the magically gifted young man who grows to be the most notorious wizard his world has ever seen.</p>
+            <div class="item4" id="item4" style="text-align: center; vertical-align: middle; background-color: lightgray;">
+                <p>Told in Kvothe's own voice, this is the tale of the magically gifted young man who grows to be the most notorious wizard his world has ever seen.</p>
                 <p>The intimate narrative of his childhood in a troupe of traveling players, his years spent as a near-feral orphan in a crime-ridden city, his daringly brazen yet successful bid to enter a legendary school of magic, and his life as a fugitive after the murder of a king form a gripping coming-of-age story unrivaled in recent literature.</p>
                 <p>A high-action story written with a poet's hand, The Name of the Wind is a masterpiece that will transport readers into the body and mind of a wizard.</p>
                 <br>
                 <p>Genres: Fantasy, Fiction, Epic Fantasy, High Fantasy, Magic</p>
             </div>
-            <div class="item5" style="text-align: center; background-color: lightgray;">
+            <div class="item5" id="item5" style="text-align: center; vertical-align: middle; background-color: lightgray;">
                 <p><small>Rothfuss, P. (2010). The Name of the Wind: The Kingkiller Chronicle: Book 1. United Kingdom: Orion.</small></p>
                 <p><small>Image Courtesy of Goodreads. https://www.goodreads.com/</small></p>
                 <p><small>All Rights: Patrick Rothfuss, DAW Books, Orion Publishing Group, Goodreads</small></p>

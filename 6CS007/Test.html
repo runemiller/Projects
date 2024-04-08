@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .grid-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1;
+            grid-template-rows: 5;
+            padding: 10px;
+            row-gap: 50px;
+        }
+
+        .grid-item {
+            padding: 5px;
+            outline-style: solid;
+            outline-color: #111;
+            height: auto;
+            display: inline-flex;
+            position: relative;
+            overflow-x: auto;
+            white-space: nowrap;
+            scroll-behavior: smooth;
+        }
+
+        .grid-item2 {
+            text-align: center;
+            height: 20px;
+            display: inline-flex;
+            position: relative;
+            margin-top: -40px;
+        }
+
+        .grid-item a:link, .grid-item a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        .grid-item a:hover {
+            color: rgb(0, 98, 255);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        figcaption {
+            color: black;
+            width: 160px;
+            text-align: center;
+            font-family: "Lato", sans-serif;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .scroll-btn-left {
+            left: 48%;
+            transform: translateY(-50%);
+        }
+
+        .scroll-btn-right {
+            right: 48%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+<div class="grid-container">
+    <div class="grid-item" id="gridItem1">
+        <figure>
+            <img src="products/books/nameofthewind.jpeg">
+            <figcaption><a href="products/pages/nameofthewind.html" target="_blank">The Name of The Wind (Paperback)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/books/wisemansfear.jpeg">
+            <figcaption><a href="products/pages/wisemansfear.html" target="_blank">The Wise Man's Fear (Paperback)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/books/goodomens.jpeg">
+            <figcaption><a href="products/pages/goodomens.html" target="_blank">Good Omens (Paperback)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/books/ttt.jpeg">
+            <figcaption><a href="products/pages/ttt.html" target="_blank">Tomorrow and Tomorrow and Tomorrow (Paperback)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/books/goodomens.jpeg">
+            <figcaption><a href="products/pages/goodomens.html" target="_blank">Good Omens (Paperback)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/books/ttt.jpeg">
+            <figcaption><a href="products/pages/ttt.html" target="_blank">Tomorrow and Tomorrow and Tomorrow (Paperback)</a></figcaption>
+        </figure>
+    </div>
+    <div class="grid-item2">
+        <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem1')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem1')">&#10095;</button>
+    </div>
+
+    <div class="grid-item" id="gridItem2">
+        <figure>
+            <img src="products/pens/carchelemanbllpt.jpeg">
+            <figcaption><a href="products/pages/carchelemanbllpt.html" target="_blank">Carche Leman Ballpoint (Pen)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/pens/vpenfnt.jpeg">
+            <figcaption><a href="products/pages/vpenfnt.html" target="_blank">V-Pen Fountain (Pen)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/pens/vsign.jpeg">
+            <figcaption><a href="products/pages/vsign.html" target="_blank">V-Sign (Pen)</a></figcaption>
+        </figure>
+        <figure>
+            <img src="products/pens/alstarfnt.jpeg">
+            <figcaption><a href="products/pages/alstarfnt.html" target="_blank">All-Star Fountain (Pen)</a></figcaption>
+        </figure>
+    </div>
+    <div class="grid-item2">
+        <button class="scroll-btn scroll-btn-left" onclick="scrollGrid('left', 'gridItem2')">&#10094;</button><button class="scroll-btn scroll-btn-right" onclick="scrollGrid('right', 'gridItem2')">&#10095;</button>
+    </div>
+</div>
+
+<input type="checkbox" id="toggleButtons" onchange="toggleButtons()">
+<label for="toggleButtons">Toggle Buttons</label>
+
+<script>
+    function scrollGrid(direction, itemId) {
+        const gridItem = document.getElementById(itemId);
+        const scrollDistance = 200;
+        if (direction === 'left') {
+            gridItem.scrollLeft -= scrollDistance;
+        } else if (direction === 'right') {
+            gridItem.scrollLeft += scrollDistance;
+        }
+    }
+
+    function toggleButtons() {
+        const buttons = document.querySelectorAll('.scroll-btn');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].style.display = document.getElementById('toggleButtons').checked ? 'block' : 'none';
+        }
+    }
+</script>
+</body>
+</html>
